@@ -8,13 +8,14 @@ export const ViewTransaction = (props) => {
     const users = props.users;
     const setNotif = props.setNotif;
     const [rowData, setRowData] = useState(users);
-    
+
     const [columnDefs, setColumnDefs] = useState([
         {field: 'AccountID', filter: true},
         {field: 'AccountType'},
         {field: 'ActionType'},
         {field: 'TransactionDate'},
         {field: 'TransactionReason'},
+        {field: 'TransactionAmount', filter: true},
         {field: 'AccountBalance', filter: true},
 
         
@@ -53,11 +54,10 @@ export const ViewTransaction = (props) => {
 
 
     return (
-        <div className="ag-theme-alpine" style={{ height: '100%', width: '100%' }}>
+        <div className="ag-theme-alpine" style={{width: 1200, height: 500}}>
             <section id="main-content">
                 <form id="form" >
                     <h1>{props.page}</h1>
-                    {/* <Notif message={notif.message} style={notif.style} /> */}
                     <label>Account</label>
                     <select name="account" onChange={onAccountChange}>
                         <option value="0">Select Account</option>
